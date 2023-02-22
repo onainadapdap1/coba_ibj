@@ -77,6 +77,6 @@ class UserController extends Controller
     {
         auth()->guard('user-api')->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => 'User successfully logged out']);
     }
 }

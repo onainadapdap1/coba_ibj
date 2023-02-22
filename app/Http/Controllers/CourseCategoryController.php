@@ -26,7 +26,7 @@ class CourseCategoryController extends Controller
         //User created, return success response
         return response()->json([
             'success' => true,
-            'message' => 'User created successfully',
+            'message' => 'Course category created successfully',
             'data' => $courseCategory
         ], Response::HTTP_OK);
     }
@@ -52,6 +52,48 @@ class CourseCategoryController extends Controller
             'success' => true,
             'message' => 'Course Category updated successfully',
             'data' => $id
+        ], Response::HTTP_OK);
+    }
+
+    public function destroycategory($id) {
+        $courseCategory = CourseCategory::find($id);
+        $courseCategory->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course category deleted successfully'
+        ], Response::HTTP_OK);
+    }
+    public function restorecategory($id) {
+        CourseCategory::withTrashed()->findOrFail($id)->restore();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course category restory successfully'
+        ], Response::HTTP_OK);
+    }
+    public function getAllCategories() {
+        $courseCategory = CourseCategory::all();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'success get all course category',
+            'data' => $courseCategory
+        ], Response::HTTP_OK);
+    }
+    public function getOneCategory($id) {
+        $categoryId = CourseCategory::find($id);
+        if (!$categoryId) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, Course category not found.'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'success get one course category',
+            'data' => $categoryId
         ], Response::HTTP_OK);
     }
 }

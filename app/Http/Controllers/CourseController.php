@@ -27,7 +27,7 @@ class CourseController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'User created successfully',
+            'message' => 'Course created successfully',
             'data' => $course
         ], Response::HTTP_OK);
     }
@@ -53,6 +53,51 @@ class CourseController extends Controller
             'message' => 'Course updated successfully',
             'data' => $id
         ], Response::HTTP_OK);
+    }
 
+    public function destroyCourse($id) {
+        $course = Course::find($id);
+        $course->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course deleted successfully'
+        ], Response::HTTP_OK);
+    }
+
+    public function restoreCourse($id) {
+        Course::withTrashed()->findOrFail($id)->restore();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Course restore successfully'
+        ], Response::HTTP_OK);
+    }
+
+    public function getAllCourse() {
+        $course = Course::all();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'success get all course category',
+            'data' => $course
+        ], Response::HTTP_OK);
+    }
+
+    public function getOneCourse($id) {
+        $courseId = Course::find($id);
+
+        if(!$courseId) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Sorry, Course not found.'
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'success get one course',
+            'data' => $courseId
+        ], Response::HTTP_OK);
     }
 }

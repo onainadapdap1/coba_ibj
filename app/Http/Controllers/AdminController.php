@@ -36,7 +36,7 @@ class AdminController extends Controller
         //User created, return success response
         return response()->json([
             'success' => true,
-            'message' => 'User created successfully',
+            'message' => 'Admin created successfully',
             'data' => $user
         ], Response::HTTP_OK);
     }
@@ -76,6 +76,6 @@ class AdminController extends Controller
     {
         auth()->guard('admin-api')->logout();
 
-        return response()->json(['message' => 'Successfully logged out']);
+        return response()->json(['message' => 'Admin successfully logged out']);
     }
 }
