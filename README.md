@@ -10,6 +10,48 @@ Laravel rest api for Brief Technical Test Back-End Developer Intern
 $ php artisan serve
 ```
 
+### Using Postman for testing
+``` 
+1. Admin (First, create admin account)
+    - register-admin
+    - login-admin
+    - get-admin
+    - admin-logout
+
+2. Course Category (Second, create course category CRUD by login using admin account)
+    - create course category
+    - update course category
+    - destroy course category
+    - restore course category
+    - get all course category
+    - get one course category
+
+3. Course (Third, create Course CRUD by login using admin account)
+    - create course
+    - update course
+    - destroy course
+    - restore course
+    - get all course
+    - get one course
+
+4. User (Fourth, create user account)
+    - register
+    - login
+    - getuser
+    - logout
+
+5. User Course (Fifth, create user course CRUD by login using user account)
+    - create user course
+    - update user course
+    - destroy user course 
+    - show all course current user
+```
+
+### URL Postman
+```
+- [Url Postman Link](https://documenter.getpostman.com/view/20268960/2s93CLtENM)
+```
+
 Project information and existing API
 ``` 
 +--------+----------+--------------------------------+---------------+----------------------------------------------------------------+-------------------------------------------------+
@@ -55,6 +97,8 @@ Project information and existing API
 |        | POST     | api/userRegister               | userRegister  | App\Http\Controllers\UserController@userRegister               | api                                             |
 +--------+----------+--------------------------------+---------------+----------------------------------------------------------------+-------------------------------------------------+
 ```
+
+
 
 ### Techstack
 - RESTful API
