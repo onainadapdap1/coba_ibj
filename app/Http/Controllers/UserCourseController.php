@@ -22,22 +22,11 @@ class UserCourseController extends Controller
         if ($validator->fails()) {
             return response()->json(['error' => $validator->messages()], 200);
         }
-        // $user = JWTAuth::authenticate();
-        // $userCourse = new UserCourse();
-        // $userCourse->course_id = $request->input('course_id');
-        // $userCourse->users_id = $user->id;
-
-        // $userId = JWTAuth::user()->id;
-        // $team = \App\Team::findOrFail($request->team_id);
-        // $team->teamMembers()->attach($request->members_id);
 
         $userCourse = UserCourse::create([
             'users_id' => Auth::guard('user-api')->user()->id,
             'course_id' => $request->input('course_id')
         ]);
-
-        // $courseId = $request->input('course_id');
-        // $user->courses()->attach($courseId);
 
         return response()->json([
             'success' => true,
@@ -79,10 +68,6 @@ class UserCourseController extends Controller
     public function showUserCourse() {
         $currentUser = Auth::guard('user-api')->user()->id;
         $currentData = UserCourse::where('users_id', $currentUser)->get();
-        // $user = User::where('id', $currentUser)->first();
-        // $courseCurrentUser = $currentUser->courses;
-        // $data = $currentUser->courses(Auth::find($currentData));
-        // dd($data);
         return response()->json([
             'success' => true,
             'message' => 'success show all user courses',
