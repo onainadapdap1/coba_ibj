@@ -49,7 +49,7 @@ $ php artisan serve
 
 ### URL Postman
 ```
-- [Url Postman Link](https://documenter.getpostman.com/view/20268960/2s93CLtENM)
+- Url Postman Link : https://documenter.getpostman.com/view/20268960/2s93CLtENM
 ```
 
 Project information and existing API
