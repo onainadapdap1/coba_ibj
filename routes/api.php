@@ -25,7 +25,7 @@ Route::post('adminRegister', [AdminController::class, 'adminRegister'])->name('a
 Route::post('adminLogin', [AdminController::class, 'adminLogin'])->name('adminLogin');
 
 Route::middleware(['admin:admin-api'])->group( function () {
-
+    // there is an update here
     Route::post('adminLogout', [AdminController::class, 'adminLogout'])->name('adminLogout');
     Route::get('me', [AdminController::class, 'me']);
     // course category
